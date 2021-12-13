@@ -99,8 +99,8 @@
 .keyboardGandGrip {
   width: 192px;
   height: 16px;
-  background-color: #cccccc;
+  background-color: #dddddd;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  box-shadow: inset 0px -2px 4px -1px #333333;
+  box-shadow: inset 0px -1px 8px 0px #333333;
 }
