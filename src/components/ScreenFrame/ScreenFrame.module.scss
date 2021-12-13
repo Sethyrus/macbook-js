@@ -1,8 +1,10 @@
+@import "./../../variables.scss";
+
 .screenFrameWrap {
   position: relative;
   display: flex;
   background-color: #272727;
-  padding-bottom: 30px;
+  padding-bottom: 28px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
 }
@@ -12,9 +14,7 @@
   display: flex;
   flex: 1;
   background-color: #000;
-  border-width: 14px 14px 12px 14px;
-  border-style: solid;
-  border-color: #000;
+  border: 14px solid black;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
   overflow: hidden;
@@ -23,13 +23,11 @@
 .screenWrap {
   position: relative;
   flex: 1;
-  width: calc(1920px * (2 / 3.5));
-  height: calc(1200px * (2 / 3.5));
-  /* background-image: url("https://ipoint.com.ar/landings/mac/macbook/macbook-pro/macbook-pro-13/main-files/macos_bg__b9yaapi9sjv6_large_2x.jpg"); */
+  // width: screenWidth();
+  // height: screenHeight();
+  @include screenDimensions();
+  @include generalBgImageProps();
   background-image: url("https://www.10wallpaper.com/wallpaper/2560x1920/2103/MacBook_Abstract_Colorful_2021_Apple_HD_Desktop_2560x1920.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }

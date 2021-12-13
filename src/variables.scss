@@ -1,0 +1,156 @@
+// Default breakpoints
+$widthBreakpoints: (
+  "XL": 1900px,
+  "L": 1440px,
+  "M": 1024px,
+  "S": 768px,
+  "XS": 480px,
+);
+$heightBreakpoints: (
+  "XL": 1080px,
+  "L": 900px,
+  "M": 700px,
+  "S": 500px,
+  "XS": 350px,
+);
+
+// Anchuras por defecto para cada tipo de pantalla
+$laptopScreenWidth: 1920px;
+$phoneScreenWidth: 260px;
+
+// Aspect ratios por defecto para cada tipo de pantalla (anchura con respecto de la altura)
+$laptopScreenWidthAspectRatio: 1.6;
+$phoneScreenWidthAspectRatio: 0.45;
+$keyboardWidthAspectRatio: 27.25;
+$cameraWidthAspectRatio: 0.16;
+$keyboardHandGripWidthAspectRatio: 0.085;
+
+// Escalas para cada elemento
+$screenScales: (
+  "DEFAULT": 4/6,
+  "XL": 4/7,
+  "L": 4/10,
+  "M": 4/14,
+  "S": 4/21,
+  "XS": 4/26,
+);
+$keyboardScale: 5/4;
+$keyboardStandScale: 1/14;
+$cameraScale: 1/10;
+$keyboardHandGripScale: 1/7;
+
+// SCREEN
+@function screenWidth($breakpoint: "DEFAULT") {
+  @debug "breakpoint KEY: #{$breakpoint}";
+  @return $laptopScreenWidth * map-get($screenScales, $breakpoint);
+}
+@function screenHeight($breakpoint: "DEFAULT") {
+  @return screenWidth($breakpoint) / $laptopScreenWidthAspectRatio;
+}
+
+// KEYBOARD
+@function keyboardWidth($breakpoint: "DEFAULT") {
+  // @if $breakpoint == "" {
+  //   @return $laptopScreenWidth * map-get($keyboardScales, "DEFAULT");
+  // }
+
+  @return screenWidth($breakpoint) * $keyboardScale;
+}
+@function keyboardHeight($breakpoint: "DEFAULT") {
+  @return keyboardWidth($breakpoint) / $keyboardWidthAspectRatio;
+}
+
+// CAMERA
+@function cameraWidth($breakpoint: "DEFAULT") {
+  // @if $breakpoint == "" {
+  //   @return $laptopScreenWidth * map-get($cameraScales, "DEFAULT");
+  // }
+
+  @return screenWidth($breakpoint) * $cameraScale;
+}
+@function cameraHeight($breakpoint: "DEFAULT") {
+  @return cameraWidth($breakpoint) * $cameraWidthAspectRatio;
+}
+
+// KEYBOARD HAND GRIP
+@function keyboardHandGripWidth($breakpoint: "DEFAULT") {
+  @return keyboardWidth($breakpoint) * $keyboardHandGripScale;
+}
+@function keyboardHandGripHeight($breakpoint: "DEFAULT") {
+  @return keyboardHandGripWidth($breakpoint) * $keyboardHandGripWidthAspectRatio;
+}
+
+// KEYBOARD STAND
+@function keyboardStandWidth($breakpoint: "DEFAULT") {
+  @return keyboardWidth($breakpoint) * $keyboardStandScale;
+}
+
+@mixin generalBgImageProps() {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin screenDimensions() {
+  width: screenWidth();
+  height: screenHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value), screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: screenWidth($key);
+      height: screenHeight($key);
+    }
+  }
+}
+
+@mixin cameraDimensions() {
+  width: cameraWidth();
+  height: cameraHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value), screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: cameraWidth($key);
+      height: cameraHeight($key);
+    }
+  }
+}
+
+@mixin keyboardDimensions() {
+  width: keyboardWidth();
+  height: keyboardHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value), screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: keyboardWidth($key);
+      height: keyboardHeight($key);
+    }
+  }
+}
+
+@mixin keyboardHandGripDimensions() {
+  width: keyboardHandGripWidth();
+  height: keyboardHandGripHeight();
+  border-bottom-left-radius: keyboardHandGripHeight();
+  border-bottom-right-radius: keyboardHandGripHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value), screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: keyboardHandGripWidth($key);
+      height: keyboardHandGripHeight($key);
+      border-bottom-left-radius: keyboardHandGripHeight($key);
+      border-bottom-right-radius: keyboardHandGripHeight($key);
+    }
+  }
+}
+
+@mixin keyboardStandDimensions() {
+  width: keyboardStandWidth();
+  height: 6px;
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value), screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: keyboardStandWidth($key);
+      height: 6px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import Camera from "../Camera/Camera";
 import Keyboard from "../Keyboard/Keyboard";
-import styles from "./ScreenFrame.module.css";
+import styles from "./ScreenFrame.module.scss";
 
 const ScreenFrame = () => (
   <div className={styles.screenFrameWrap}>

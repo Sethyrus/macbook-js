@@ -1,10 +1,13 @@
+@import "./../../variables.scss";
+
 .cameraWrap {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 112px;
-  height: 18px;
+  // width: cameraWidth();
+  // height: cameraHeight();
+  @include cameraDimensions();
   background-color: black;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
