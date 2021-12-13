@@ -5,15 +5,10 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  // width: keyboardWidth();
-  // height: keyboardHeight();
-  @include keyboardDimensions();
   background-color: #999999;
   border: 2px solid #cccccc;
   border-top: none;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
-  box-shadow: inset 0 -6px 10px 2px #dddddd;
+  @include keyboardDimensions();
 }
 
 .keyboardStandLeft,
@@ -21,11 +16,9 @@
   content: "";
   position: absolute;
   top: calc(100% + 2px);
-  // width: keyboardStandWidth();
-  // height: 6px;
-  @include keyboardStandDimensions();
   background-color: #cccccc;
   box-shadow: inset 0px -2px 2px #333333;
+  @include keyboardStandDimensions();
 }
 
 .keyboardStandLeft {
@@ -92,11 +85,7 @@
 }
 
 .keyboardGandGrip {
-  // width: keyboardHandGripWidth();
-  // height: keyboardHandGripHeight();
   @include keyboardHandGripDimensions();
   background-color: #dddddd;
-  // border-bottom-left-radius: keyboardHandGripHeight();
-  // border-bottom-right-radius: keyboardHandGripHeight();
   box-shadow: inset 0px -1px 8px 0px #333333;
 }

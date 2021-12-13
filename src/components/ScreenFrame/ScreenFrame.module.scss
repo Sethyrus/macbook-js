@@ -4,9 +4,7 @@
   position: relative;
   display: flex;
   background-color: #272727;
-  padding-bottom: 28px;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  @include screenFrameWrapDimensions();
 }
 
 .screenFrame {
@@ -14,20 +12,16 @@
   display: flex;
   flex: 1;
   background-color: #000;
-  border: 14px solid black;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  border-color: #000000;
+  border-style: solid;
   overflow: hidden;
+  @include screenFrameDimensions();
 }
 
 .screenWrap {
   position: relative;
   flex: 1;
-  // width: screenWidth();
-  // height: screenHeight();
-  @include screenDimensions();
-  @include generalBgImageProps();
   background-image: url("https://www.10wallpaper.com/wallpaper/2560x1920/2103/MacBook_Abstract_Colorful_2021_Apple_HD_Desktop_2560x1920.jpg");
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  @include generalBgImageProps();
+  @include screenDimensions();
 }

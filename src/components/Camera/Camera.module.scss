@@ -5,22 +5,14 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  // width: cameraWidth();
-  // height: cameraHeight();
-  @include cameraDimensions();
   background-color: black;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  @include cameraWrapDimensions();
 }
 
 .camera {
-  width: 6px;
-  height: 6px;
   background-color: #777;
-  margin-top: 1px;
-  border-radius: 3px;
-  box-shadow: inset 0px 0px 4px #000000;
+  @include cameraDimensions();
 }
