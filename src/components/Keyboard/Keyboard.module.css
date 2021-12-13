@@ -3,7 +3,104 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: calc(1920px * ((2 / 3.5) * 1.25));
   height: 50px;
-  background-color: #aaa;
+  background-color: #999999;
+  border: 2px solid #cccccc;
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: inset 0 -6px 10px 2px #dddddd;
+}
+
+.keyboardStandLeft,
+.keyboardStandRight {
+  content: "";
+  position: absolute;
+  top: calc(100% + 2px);
+  width: 96px;
+  background-color: #cccccc;
+  height: 6px;
+  box-shadow: inset 0px -2px 2px #333333;
+}
+
+.keyboardStandLeft {
+  left: 7.5%;
+}
+
+.keyboardStandRight {
+  right: 7.5%;
+}
+
+.keyboardStandLeft:before,
+.keyboardStandRight:before,
+.keyboardStandLeft:after,
+.keyboardStandRight:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  width: 6px;
+  height: calc(100% + 6px);
+  background-color: #fff;
+}
+
+.keyboardStandLeft:before,
+.keyboardStandRight:before {
+  right: calc(100% - 5px);
+  transform: rotate(135deg);
+}
+
+.keyboardStandLeft:after,
+.keyboardStandRight:after {
+  left: calc(100% - 5px);
+  transform: rotate(45deg);
+}
+
+.keyboardGandGripWrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.keyboardGandGripContainer {
+  position: relative;
+  width: 75%;
+  height: calc(100% * 2 / 3);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  /* box-shadow: inset 0 -6px 10px 2px #dddddd;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px; */
+}
+
+.keyboardGandGripContainer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* box-shadow: 0 -6px 10px 2px #dddddd;
+  box-shadow: 0 0px 24px 6px #dddddd;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px; */
+}
+
+.keyboardGandGrip {
+  width: 192px;
+  height: 16px;
+  background-color: #cccccc;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: inset 0px -2px 4px -1px #333333;
 }
