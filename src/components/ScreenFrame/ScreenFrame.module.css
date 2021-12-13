@@ -1,24 +1,30 @@
-.screenWrap {
+.screenFrameWrap {
+  position: relative;
   display: flex;
-  background-color: black;
+  background-color: #272727;
+  padding-bottom: 30px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  border-bottom: 30px solid #272727;
-  overflow: hidden;
 }
 
 .screenFrame {
   position: relative;
   display: flex;
   flex: 1;
+  background-color: #000;
   border-width: 14px 14px 12px 14px;
   border-style: solid;
+  border-color: #000;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
 }
 
-.screen {
+.screenWrap {
+  position: relative;
   flex: 1;
   width: calc(1920px * (2 / 3.5));
-  height: calc(1080px * (2 / 3.5));
+  height: calc(1200px * (2 / 3.5));
   /* background-image: url("https://ipoint.com.ar/landings/mac/macbook/macbook-pro/macbook-pro-13/main-files/macos_bg__b9yaapi9sjv6_large_2x.jpg"); */
   background-image: url("https://www.10wallpaper.com/wallpaper/2560x1920/2103/MacBook_Abstract_Colorful_2021_Apple_HD_Desktop_2560x1920.jpg");
   background-size: cover;

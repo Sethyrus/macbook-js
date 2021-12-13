@@ -1,9 +1,9 @@
-import Screen from "../Screen/Screen";
+import ScreenFrame from "../ScreenFrame/ScreenFrame";
 import styles from "./Scaffold.module.css";
 
 const Scaffold = () => (
   <div className={styles.scaffold}>
-    <Screen />
+    <ScreenFrame />
   </div>
 );
 

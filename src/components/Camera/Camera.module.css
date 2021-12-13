@@ -3,12 +3,21 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 20px;
+  width: 112px;
+  height: 18px;
   background-color: black;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .camera {
+  width: 6px;
+  height: 6px;
+  background-color: #777;
+  margin-top: 1px;
+  border-radius: 3px;
+  box-shadow: inset 0px 0px 4px #000000;
 }
