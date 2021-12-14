@@ -43,7 +43,6 @@ $keyboardHandGripScale: 1/7;
 
 // SCREEN
 @function screenWidth($breakpoint: "DEFAULT") {
-  @debug "breakpoint KEY: #{$breakpoint}";
   @return $laptopScreenWidth * map-get($screenScales, $breakpoint);
 }
 @function screenHeight($breakpoint: "DEFAULT") {
@@ -109,6 +108,7 @@ $keyboardHandGripScale: 1/7;
     }
   }
 }
+
 @mixin screenFrameDimensions() {
   border-width: screenWidth() / 100;
   border-top-left-radius: 24px;
