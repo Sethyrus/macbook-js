@@ -97,27 +97,31 @@ $keyboardHandGripScale: 1/7;
 @mixin screenFrameWrapDimensions() {
   margin-bottom: keyboardHeight();
   padding-bottom: screenHeight() / 32;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  border-top-left-radius: screenHeight() / 36.5;
+  border-top-right-radius: screenHeight() / 36.5;
 
   @each $key, $value in $widthBreakpoints {
     @media screen and (max-width: $value),
       screen and (max-height: map-get($heightBreakpoints, $key)) {
       margin-bottom: keyboardHeight($key);
       padding-bottom: screenHeight($key) / 32;
+      border-top-left-radius: screenHeight($key) / 36.5;
+      border-top-right-radius: screenHeight($key) / 36.5;
     }
   }
 }
 
 @mixin screenFrameDimensions() {
   border-width: screenWidth() / 100;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  border-top-left-radius: screenHeight() / 36.5;
+  border-top-right-radius: screenHeight() / 36.5;
 
   @each $key, $value in $widthBreakpoints {
     @media screen and (max-width: $value),
       screen and (max-height: map-get($heightBreakpoints, $key)) {
       border-width: screenWidth($key) / 100;
+      border-top-left-radius: screenHeight($key) / 36.5;
+      border-top-right-radius: screenHeight($key) / 36.5;
     }
   }
 }
@@ -125,8 +129,6 @@ $keyboardHandGripScale: 1/7;
 @mixin screenDimensions() {
   width: screenWidth();
   height: screenHeight();
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 
   @each $key, $value in $widthBreakpoints {
     @media screen and (max-width: $value),
