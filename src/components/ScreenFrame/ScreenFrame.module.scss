@@ -1,13 +1,8 @@
 @import "./../../variables.scss";
 
-.screenFrameWrap {
-  position: relative;
-  display: flex;
-  background-color: #272727;
-  @include screenFrameWrapDimensions();
-}
-
 .screenFrame {
+  @include screenFrameDimensions();
+  @include generalTransition();
   position: relative;
   display: flex;
   flex: 1;
@@ -15,18 +10,8 @@
   border-color: #000000;
   border-style: solid;
   overflow: hidden;
-  @include screenFrameDimensions();
 }
 
-.screenWrap {
-  position: relative;
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  @include screenDimensions();
-}
-
-.screenContainer {
-  display: flex;
-  flex: 1;
+.screenFrameNoComputer {
+  border-radius: 0;
 }

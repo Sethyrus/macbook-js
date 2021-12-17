@@ -87,30 +87,7 @@ $keyboardHandGripScale: 1/7;
   @return keyboardStandWidth($breakpoint) * $keyboardStandAspectRatio;
 }
 
-@mixin generalBgImageProps() {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 // Dimensiones específicas sujetas a escalado
-@mixin screenFrameWrapDimensions() {
-  margin-bottom: keyboardHeight();
-  padding-bottom: screenHeight() / 32;
-  border-top-left-radius: screenHeight() / 36.5;
-  border-top-right-radius: screenHeight() / 36.5;
-
-  @each $key, $value in $widthBreakpoints {
-    @media screen and (max-width: $value),
-      screen and (max-height: map-get($heightBreakpoints, $key)) {
-      margin-bottom: keyboardHeight($key);
-      padding-bottom: screenHeight($key) / 32;
-      border-top-left-radius: screenHeight($key) / 36.5;
-      border-top-right-radius: screenHeight($key) / 36.5;
-    }
-  }
-}
-
 @mixin screenFrameDimensions() {
   border-width: screenWidth() / 100;
   border-top-left-radius: screenHeight() / 36.5;
@@ -126,15 +103,19 @@ $keyboardHandGripScale: 1/7;
   }
 }
 
-@mixin screenDimensions() {
-  width: screenWidth();
-  height: screenHeight();
+@mixin screenFrameWrapDimensions() {
+  margin-bottom: keyboardHeight();
+  padding-bottom: screenHeight() / 32;
+  border-top-left-radius: screenHeight() / 36.5;
+  border-top-right-radius: screenHeight() / 36.5;
 
   @each $key, $value in $widthBreakpoints {
     @media screen and (max-width: $value),
       screen and (max-height: map-get($heightBreakpoints, $key)) {
-      width: screenWidth($key);
-      height: screenHeight($key);
+      margin-bottom: keyboardHeight($key);
+      padding-bottom: screenHeight($key) / 32;
+      border-top-left-radius: screenHeight($key) / 36.5;
+      border-top-right-radius: screenHeight($key) / 36.5;
     }
   }
 }
@@ -172,11 +153,41 @@ $keyboardHandGripScale: 1/7;
   }
 }
 
-@mixin keyboardDimensions() {
+@mixin screenWrapDimensions() {
+  width: screenWidth();
+  height: screenHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value),
+      screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: screenWidth($key);
+      height: screenHeight($key);
+    }
+  }
+}
+
+@mixin screenWrapNoComputerDimensions() {
+  border-top-left-radius: screenHeight() / 42;
+  border-top-right-radius: screenHeight() / 42;
+  width: calc(100vw - ((#{screenWidth()} / 100) * 2));
+  height: calc(100vh - ((#{screenWidth()} / 100) * 2));
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value),
+      screen and (max-height: map-get($heightBreakpoints, $key)) {
+      border-top-left-radius: screenHeight($key) / 42;
+      border-top-right-radius: screenHeight($key) / 42;
+      width: calc(100vw - ((#{screenWidth($key)} / 100) * 2));
+      height: calc(100vh - ((#{screenWidth($key)} / 100) * 2));
+    }
+  }
+}
+
+@mixin keyboardWrapDimensions() {
   width: keyboardWidth();
   height: keyboardHeight();
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: screenHeight() / 36.5;
+  border-bottom-right-radius: screenHeight() / 36.5;
   box-shadow: inset 0 -6px 10px 2px #dddddd;
 
   @each $key, $value in $widthBreakpoints {
@@ -184,6 +195,21 @@ $keyboardHandGripScale: 1/7;
       screen and (max-height: map-get($heightBreakpoints, $key)) {
       width: keyboardWidth($key);
       height: keyboardHeight($key);
+      border-bottom-left-radius: screenHeight($key) / 36.5;
+      border-bottom-right-radius: screenHeight($key) / 36.5;
+    }
+  }
+}
+
+@mixin keyboardStandDimensions() {
+  width: keyboardStandWidth();
+  height: keyboardStandHeight();
+
+  @each $key, $value in $widthBreakpoints {
+    @media screen and (max-width: $value),
+      screen and (max-height: map-get($heightBreakpoints, $key)) {
+      width: keyboardStandWidth($key);
+      height: keyboardStandHeight($key);
     }
   }
 }
@@ -205,15 +231,27 @@ $keyboardHandGripScale: 1/7;
   }
 }
 
-@mixin keyboardStandDimensions() {
-  width: keyboardStandWidth();
-  height: keyboardStandHeight();
+@mixin toggleFullScreenButtonDimensions() {
+  top: screenWidth() / 100;
+  right: screenWidth() / 100;
 
   @each $key, $value in $widthBreakpoints {
     @media screen and (max-width: $value),
       screen and (max-height: map-get($heightBreakpoints, $key)) {
-      width: keyboardStandWidth($key);
-      height: keyboardStandHeight($key);
+      top: screenWidth($key) / 100;
+      right: screenWidth($key) / 100;
     }
   }
+}
+
+// Other mixins
+
+@mixin generalBgImageProps() {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin generalTransition() {
+  transition: calc(1s * 1/3) all ease-in;
 }

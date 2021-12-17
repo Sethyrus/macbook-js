@@ -1,0 +1,16 @@
+@import "./../../variables.scss";
+
+.toggleFullScreenButton {
+  @include toggleFullScreenButtonDimensions();
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+}
+
+.toggleFullScreenButtonIcon {
+  font-size: 48px;
+
+  @media screen and (max-width: map-get($widthBreakpoints, "S")) {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,13 @@
+@import "./../../variables.scss";
+
+.screenFrameWrap {
+  @include screenFrameWrapDimensions();
+  position: relative;
+  display: flex;
+  background-color: #272727;
+}
+
+.screenFrameWrapNoComputer {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

@@ -1,7 +1,21 @@
 @import "./../../variables.scss";
 
 .screenWrap {
+  @include screenWrapDimensions();
+  @include generalTransition();
+  position: relative;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.screenWrapNoComputer {
+  @include screenWrapNoComputerDimensions();
+}
+
+.screenContainer {
   @include generalBgImageProps();
+  display: flex;
   background-image: url("https://www.10wallpaper.com/wallpaper/2560x1920/2103/MacBook_Abstract_Colorful_2021_Apple_HD_Desktop_2560x1920.jpg");
   flex: 1;
 }

@@ -1,6 +1,7 @@
 @import "./../../variables.scss";
 
 .keyboardWrap {
+  @include keyboardWrapDimensions();
   position: absolute;
   top: 100%;
   left: 50%;
@@ -8,17 +9,16 @@
   background-color: #999999;
   border: 2px solid #cccccc;
   border-top: none;
-  @include keyboardDimensions();
 }
 
 .keyboardStandLeft,
 .keyboardStandRight {
+  @include keyboardStandDimensions();
   content: "";
   position: absolute;
   top: calc(100% + 2px);
   background-color: #cccccc;
   box-shadow: inset 0px -2px 2px #333333;
-  @include keyboardStandDimensions();
 }
 
 .keyboardStandLeft {

@@ -1,6 +1,7 @@
 @import "./../../variables.scss";
 
 .cameraWrap {
+  @include cameraWrapDimensions();
   position: absolute;
   top: 0;
   left: 50%;
@@ -9,10 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  @include cameraWrapDimensions();
 }
 
 .camera {
-  background-color: #777;
   @include cameraDimensions();
+  background-color: #777;
 }

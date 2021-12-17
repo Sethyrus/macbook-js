@@ -1,19 +1,15 @@
-import Camera from "../Camera/Camera";
-import Keyboard from "../Keyboard/Keyboard";
 import Screen from "../Screen/Screen";
 import styles from "./ScreenFrame.module.scss";
 
-const ScreenFrame = () => (
-  <div className={styles.screenFrameWrap}>
-    <div className={styles.screenFrame}>
-      <div className={styles.screenWrap}>
-        <Camera />
-        <div className={styles.screenContainer}>
-          <Screen />
-        </div>
-      </div>
-    </div>
-    <Keyboard />
+const ScreenFrame = (props: ScreenFrameProps) => (
+  <div
+    className={[
+      styles.screenFrame,
+      props.inComputer ? undefined : styles.screenFrameNoComputer,
+    ].join(" ")}
+  >
+    <Screen inComputer={props.inComputer} />
   </div>
 );
+
 export default ScreenFrame;
