@@ -2,6 +2,7 @@
 
 .screenFrameWrap {
   @include screenFrameWrapDimensions();
+  @include generalTransition();
   position: relative;
   display: flex;
   background-color: #272727;
